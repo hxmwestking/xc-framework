@@ -6,15 +6,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by admin on 2018/3/18.
- */
+
 public class CookieUtil {
 
     /**
      * 设置cookie
      *
-     * @param response
+     * @param response response
      * @param name     cookie名字
      * @param value    cookie值
      * @param maxAge   cookie生命周期 以秒为单位
@@ -33,21 +31,21 @@ public class CookieUtil {
 
     /**
      * 根据cookie名称读取cookie
-     * @param request
-     * @param cookieName1,cookieName2
+     * @param request request
+     * @param cookieNames cookieName1,cookieName2
      * @return map<cookieName,cookieValue>
      */
 
     public static Map<String,String> readCookie(HttpServletRequest request,String ... cookieNames) {
-        Map<String,String> cookieMap = new HashMap<String,String>();
+        Map<String,String> cookieMap = new HashMap<>();
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
                     String cookieName = cookie.getName();
                     String cookieValue = cookie.getValue();
-                    for(int i=0;i<cookieNames.length;i++){
-                        if(cookieNames[i].equals(cookieName)){
-                            cookieMap.put(cookieName,cookieValue);
+                    for (String cookieName1 : cookieNames) {
+                        if (cookieName1.equals(cookieName)) {
+                            cookieMap.put(cookieName, cookieValue);
                         }
                     }
                 }

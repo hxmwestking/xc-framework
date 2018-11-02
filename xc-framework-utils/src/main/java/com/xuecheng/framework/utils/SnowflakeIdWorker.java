@@ -1,8 +1,5 @@
 package com.xuecheng.framework.utils;
 
-/**
- * Created by mrt on 2018/3/27.
- */
 
 /**
  * Twitter_Snowflake<br>

@@ -3,14 +3,12 @@ package com.xuecheng.framework.utils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by mrt on 2018/3/27.
- */
+
 public class GenerateOrderNum {
     /**
      * 锁对象，可以为任意对象
      */
-    private static Object lockObj = "lockerOrder";
+    private static final Object lockObj = "lockerOrder";
     /**
      * 订单号生成计数器
      */
@@ -20,9 +18,6 @@ public class GenerateOrderNum {
      */
     private int maxPerMSECSize=1000;
 
-    /**
-     *
-     */
 
     /**
      * 生成非重复订单号，理论上限1毫秒1000个，可扩展
