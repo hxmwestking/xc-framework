@@ -11,6 +11,15 @@
         <module>xc-framework-utils</module>
         <module>xc-framework-model</module>
         <module>xc-service-api</module>
+        <module>xc-service-manage-cms</module>
+        <module>test-freemarker</module>
+        <module>test-rabbitmq-producer</module>
+        <module>test-rabbitmq-consumer</module>
+        <module>xc-service-manage-cms-client</module>
+        <module>xc-service-manage-course</module>
+        <module>test-fastdfs</module>
+        <module>xc-service-base-filesystem</module>
+        <module>xc-govern-center</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -28,12 +37,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Greenwich.M1</spring-cloud.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
 
         <tomcat.version>8.5.34</tomcat.version>
         <druid.version>1.1.12</druid.version>
+        <druid.spring.version>1.1.10</druid.spring.version>
         <mysql-connector-java.version>8.0.13</mysql-connector-java.version>
-
+        <mybatis-spring-boot.version>1.3.2</mybatis-spring-boot.version>
         <commons-io.version>2.6</commons-io.version>
         <commons-fileupload.version>1.3.3</commons-fileupload.version>
         <commons-codec.version>1.11</commons-codec.version>
@@ -46,6 +56,8 @@
         <fastdfs-client-java.version>1.27.0.0</fastdfs-client-java.version>
         <elasticsearch.version>6.4.2</elasticsearch.version>
         <guava.version>27.0-jre</guava.version>
+        <pagehelper.version>1.2.4</pagehelper.version>
+        <fastdfs.version>1.27.0.0</fastdfs.version>
     </properties>
 
     <dependencyManagement>
@@ -68,6 +80,21 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
             </dependency>
 
             <dependency>
@@ -141,6 +168,12 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.oschina.zcx7878</groupId>
+                <artifactId>fastdfs-client-java</artifactId>
+                <version>${fastdfs.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

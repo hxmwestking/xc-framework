@@ -8,7 +8,7 @@ public class GenerateOrderNum {
     /**
      * 锁对象，可以为任意对象
      */
-    private static final Object lockObj = "lockerOrder";
+    private static final Object LOCK_OBJ = "lockerOrder";
     /**
      * 订单号生成计数器
      */
@@ -27,7 +27,7 @@ public class GenerateOrderNum {
         try {
             // 最终生成的订单号
             String finOrderNum = "";
-            synchronized (lockObj) {
+            synchronized (LOCK_OBJ) {
                 // 取系统当前时间作为订单号变量前半部分，精确到毫秒
                 long nowLong = Long.parseLong(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()));
                 // 计数器到最大值归零，可扩展更大，目前1毫秒处理峰值1000个，1秒100万
