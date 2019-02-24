@@ -20,6 +20,7 @@
         <module>test-fastdfs</module>
         <module>xc-service-base-filesystem</module>
         <module>xc-govern-center</module>
+        <module>xc-service-search</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -58,6 +59,7 @@
         <guava.version>27.0-jre</guava.version>
         <pagehelper.version>1.2.4</pagehelper.version>
         <fastdfs.version>1.27.0.0</fastdfs.version>
+        <elasticsearch.version>6.6.0</elasticsearch.version>
     </properties>
 
     <dependencyManagement>
@@ -175,6 +177,20 @@
                 <artifactId>fastdfs-client-java</artifactId>
                 <version>${fastdfs.version}</version>
             </dependency>
+
+            <!-- elasticsearch -->
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 
