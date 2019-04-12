@@ -3,6 +3,7 @@ package com.xuecheng.manage_course.controller;
 import com.xuecheng.api.course.CourseControllerApi;
 import com.xuecheng.framework.domain.course.CoursePic;
 import com.xuecheng.framework.domain.course.Teachplan;
+import com.xuecheng.framework.domain.course.TeachplanMedia;
 import com.xuecheng.framework.domain.course.ext.CourseView;
 import com.xuecheng.framework.domain.course.ext.TeachplanNode;
 import com.xuecheng.framework.domain.course.response.CoursePublishResult;
@@ -31,14 +32,14 @@ public class CourseController implements CourseControllerApi {
 
     @Override
     @PostMapping("/teachplan/add")
-    public ResponseResult addTeachplan(@RequestBody  Teachplan teachplan) {
+    public ResponseResult addTeachplan(@RequestBody Teachplan teachplan) {
         return courseService.addTeachplan(teachplan);
     }
 
     @Override
     @PostMapping("/coursepic/add")
-    public ResponseResult addCoursePic(@RequestParam("courseId") String courseId, @RequestParam("pic")String pic) {
-        return courseService.addCoursePic(courseId,pic);
+    public ResponseResult addCoursePic(@RequestParam("courseId") String courseId, @RequestParam("pic") String pic) {
+        return courseService.addCoursePic(courseId, pic);
     }
 
     @Override
@@ -63,12 +64,17 @@ public class CourseController implements CourseControllerApi {
     @PostMapping("/preview/{id}")
     public CoursePublishResult preview(@PathVariable("id") String id) {
         return courseService.preview(id);
-
     }
 
     @Override
     @PostMapping("/publish/{id}")
-    public CoursePublishResult publish(@PathVariable("id")String id) {
+    public CoursePublishResult publish(@PathVariable("id") String id) {
         return courseService.publish(id);
+    }
+
+    @Override
+    @PostMapping("/savemedia")
+    public ResponseResult savemedia(@RequestBody TeachplanMedia teachplanMedia) {
+        return courseService.savemedia(teachplanMedia);
     }
 }
